@@ -1,0 +1,342 @@
+p,
+a,
+b,
+i,
+li,
+ul,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+img,
+body,
+canvas,
+video,
+textarea,
+audio,
+input,
+pre,
+html {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  box-sizing: border-box;
+}
+
+aside,
+nav,
+main {
+  display: block;
+}
+
+body,
+html {
+  color: #333;
+  font-size: 12px;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+img {
+  border: 0;
+  cursor: pointer;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  outline: 0;
+}
+
+canvas {
+  display: block;
+}
+
+input,
+textarea {
+  border: none;
+  resize: none;
+  outline-style: none;
+  outline-width: 0;
+  box-shadow: none;
+  outline-color: transparent;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+.placeholder {
+  color: #b4b4b4;
+  font-size: 12px;
+}
+
+.disabled {
+  color: #989898 !important;
+  cursor: not-allowed;
+}
+
+.none-placeholder {
+  color: #b4b4b4;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+input::-webkit-input-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+input::-moz-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+input:-moz-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+input::-ms-input-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+textarea::-moz-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+textarea:-moz-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+textarea::-ms-input-placeholder {
+  color: #898989;
+  font-size: 12px;
+}
+
+ul,
+li {
+  list-style: none;
+  cursor: default;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+@mixin text-overflow-at($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+}
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h6 {
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.content-box {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 0 6px 6px rgba($color: #dfdfdf, $alpha: 0.2);
+}
+
+.head-title {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.common-line {
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-overflow-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-overflow-2 {
+  @include text-overflow-at(2);
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pad-y-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.pad-y-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pad-y-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.pad-x-5 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pad-x-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pad-top-min {
+  padding-top: 5px;
+}
+.pad-top-normal {
+  padding-top: 10px;
+}
+.pad-top-large {
+  padding-top: 20px;
+}
+
+.pad-bottom-min {
+  padding-bottom: 5px;
+}
+.pad-bottom-normal {
+  padding-bottom: 10px;
+}
+.pad-bottom-large {
+  padding-bottom: 20px;
+}
+
+.pad-clear {
+  padding: 0;
+}
+
+.margin-clear {
+  margin: 0;
+}
+
+.loading-more {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #787878;
+}
+
+.confirm-btn,
+.cancel-btn {
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  background-color: #597ef7;
+  color: white;
+}
+
+.cancel-btn {
+  border: 1px solid #dcdcdc;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+
+.none-place {
+  text-align: center;
+  font-size: 12px;
+  color: #989898;
+  padding: 20px 0;
+  width: 100%;
+}
