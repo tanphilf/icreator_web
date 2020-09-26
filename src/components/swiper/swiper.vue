@@ -113,7 +113,11 @@
       updateSize()
       {
         let { offsetHeight, offsetWidth } = this.$el
+        this.stopAutoPlay()
         this.size = this.direction === 'horizontal' ? offsetWidth : offsetHeight
+        if (this.autoplay) {
+          this.startAutoPlay()
+        }
       },
 
       // 页面显示隐藏下，自动播放暂停控制

@@ -370,7 +370,8 @@
           let { code, msg } = res.data
           if (code === 200) {
             UI.showToast({
-              content: successMsg
+              content: successMsg,
+              type: 'success'
             })
 
             gStatus.initUser(Object.assign(gStatus.userData, data), this)
@@ -486,7 +487,8 @@
           let path = (this.currentNav === 0 && '/article/delete') || (this.currentNav === 1 && '/comment/delete') || (this.currentNav === 2 && '')
           if (!path) {
             return UI.showToast({
-              content: '操作失败'
+              content: 'fail',
+              type: 'fail'
             })
           }
           if (this.selectAll) {
@@ -530,7 +532,8 @@
                 if (code === 200) {
                   this.deleteListItem(list.name, list.key, id)
                   UI.showToast({
-                    content: '操作成功'
+                    content: '操作成功',
+                    type: 'success'
                   })
                 } else {
                   UI.showToast({

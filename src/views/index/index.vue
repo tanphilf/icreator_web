@@ -304,7 +304,7 @@
 
         .art-item {
           border-bottom: 1px solid #f2f2f2;
-          margin: 10px 0;
+          /* margin: 10px 0; */
 
           &:last-child {
             border-bottom: none;

@@ -110,6 +110,7 @@ window.gStatus = {
   logout () {
     this.clearCookie()
     this.initUser({}, this.context)
+    localStorage.clear()
   },
 
   // 登陆初始化
@@ -145,7 +146,8 @@ window.gStatus = {
     if (this.enableCookie)
     {
       this.clearCookie()
-      document.cookie = 'uid=' + token + ';expires=' + expire
+      let sec = (expire - new Date().getTime()) / 1000;
+      document.cookie = `uid=${token};expires=${new Date(expire).toUTCString()};path=/;`
     } else
     {
       localStorage.setItem('uid', {

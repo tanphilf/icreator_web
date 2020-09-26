@@ -43,13 +43,13 @@
       this.$nextTick(this.initDt)
 
       this.$parent.$on('updateItemPosition', this.updatePosition)
-      // window.addEventListener("orientationchange" in window ? "orientationchange" : "resize", this.initDt, false)
+      window.addEventListener("orientationchange" in window ? "orientationchange" : "resize", this.initDt, false)
     },
 
     destroyed()
     {
       this.$parent.$off('updateItemPosition', this.updatePosition)
-      // window.removeEventListener("orientationchange" in window ? "orientationchange" : "resize", this.initDt, false)
+      window.removeEventListener("orientationchange" in window ? "orientationchange" : "resize", this.initDt, false)
     },
 
     methods: {
@@ -77,13 +77,11 @@
       // 排列child位置（需要保证所有child尺寸相同）
       initDt(dt = 0)
       {
-        this.size = this.isHorizontal ? this.$el.offsetWidth : this.$el.offsetHeight
+        this.size = this.$parent.size
         this.current = this.$parent.crt
-        // this.position = (dt + this.size * (this.currentIndex - this.current)) % (this.$parent.length * this.size)
         this.position = dt + this.size * (this.currentIndex - this.current)
         // 手动拖动以及自动播放区分，手动拖动（过程只是刷新位置没有触发next或者before）不需要延迟位移其他item
         let isGesture = typeof (this.$parent.getGestureIndex()) === 'number'
-
         this.statusStyle = {
           zIndex: this.currentIndex === this.current ? 999 : this.index,
           transform: this.isHorizontal ? `translateX(${this.position}px)` : `translateY(${this.position}px)`,

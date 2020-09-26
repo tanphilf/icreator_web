@@ -16,7 +16,7 @@
 
     viewPortEl.setAttribute('name', 'viewport')
     viewPortEl.setAttribute('content', 'width=device-width,initial-scale=' + _scale + ',maximum-scale=' + _scale + ',minimum-scale=' + _scale + ',user-scalable=no')
-    doc.firstElementChild.appendChild(viewPortEl)
+    doc.head.appendChild(viewPortEl)
 
     // 设计稿:750px <--> 7.5rem；
     const designSize = 750;

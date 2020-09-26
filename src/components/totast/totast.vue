@@ -1,6 +1,6 @@
 <template>
-  <div :class="['component-totast-wrapper', show?'cpt-totast-show':'cpt-totast-hide']">
-    <!-- <div class="cpt-totast-delay-cover"></div> -->
+  <div @animationend="onTransEnd"
+    :class="['component-totast-wrapper', show?'cpt-totast-show':'',content&&!show?'cpt-totast-hide':'']">
     <div class="cpt-totast-box">
       <span :class="['ict',icon,'totast-icon']" :style="{color: iconColor}"></span>
       <span class="cpt-totast-content">{{content}}</span>
@@ -9,11 +9,27 @@
 </template>
 
 <script>
-  const totastColors = {
-    default: '#fcba16',
-    warn: '#fcba16',
-    success: '#42be5c',
-    fail: '#878787',
+  const totastCfg = {
+    default: {
+      type: 'default',
+      color: '#fcba16',
+      icon: 'ichj1'
+    },
+    warn: {
+      type: 'warn',
+      color: '#fcba16',
+      icon: 'ichj1'
+    },
+    success: {
+      type: 'success',
+      color: '#42be5c',
+      icon: 'iczhengque'
+    },
+    fail: {
+      type: 'fail',
+      color: '#878787',
+      icon: 'icerror'
+    },
   }
   export default {
     name: 'totast',
@@ -24,10 +40,10 @@
       return {
         content: '',
         show: false,
-        type: 'default',
+        type: totastCfg.default.type,
         showDelay: false,
-        icon: 'ichj1',
-        iconColor: '#fcba16',
+        icon: totastCfg.default.icon,
+        iconColor: totastCfg.default.color,
         timer: null
       }
     },
@@ -40,13 +56,26 @@
       this.$root.$off('showToast', this.onTotast)
     },
     methods: {
+      onTransEnd()
+      {
+        if (!this.show) {
+          this.reset()
+        }
+      },
+      reset()
+      {
+        this.type = 'default';
+        this.iconColor = totastCfg[this.type].color
+        this.icon = totastCfg[this.type].icon
+      },
       onTotast(cfg)
       {
         if (cfg) {
           this.content = cfg.content;
           if (['default', 'success', 'warn', 'fail'].indexOf(cfg.type) !== -1) {
             this.type = cfg.type;
-            this.iconColor = totastColors[this.type]
+            this.iconColor = totastCfg[this.type].color
+            this.icon = totastCfg[this.type].icon
           }
           this.show = true
 
@@ -96,7 +125,6 @@
   .cpt-totast-show {
     z-index: 9999;
     opacity: 1;
-    visibility: visible;
     transition: opacity .36s ease-out;
   }
 

@@ -441,6 +441,17 @@
         padding: 18px 15px 12px;
         border: 1px solid #dcdcdc;
       }
+
+      blockquote {
+        padding: 20px;
+        background-color: #fafafa;
+        border-left: 6px solid #e6e6e6;
+        word-break: break-word;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 30px;
+        margin: 0 0 20px
+      }
     }
 
     .article-comments {

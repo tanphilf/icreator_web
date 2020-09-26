@@ -7,7 +7,7 @@
         <ul class="main-nav-list">
           <li class="nav-list-container">
             <ul class="nav-list flex-row-center">
-              <router-link to="/index">
+              <router-link to="/">
                 <span class="nav-list-item nav-item">首页</span>
               </router-link>
 
@@ -62,15 +62,17 @@
             </div>
 
             <ul :class="['user-setting-pane',showSetting?'user-setting-pane-show':'user-setting-pane-hide']">
-              <li class="user-setting-item user-name text-overflow-1" :title="user&&user.nickname">
-                <router-link :to="{name: 'setting',params: {menu: 0,nav: 0}}">{{user&&user.nickname}}</router-link>
-              </li>
-              <li class="user-setting-item">
-                <router-link :to="{name: 'setting',params: {menu: 1}}">资料</router-link>
-              </li>
-              <li class="user-setting-item">
-                <router-link :to="{name: 'setting'}">作品</router-link>
-              </li>
+              <router-link :to="{name: 'setting',params: {menu: 0,nav: 0}}">
+                <li class="user-setting-item user-name text-overflow-1" :title="user&&user.nickname">
+                  {{user&&user.nickname}}
+                </li>
+              </router-link>
+              <router-link :to="{name: 'setting',params: {menu: 1}}">
+                <li class="user-setting-item">资料</li>
+              </router-link>
+              <router-link :to="{name: 'setting'}">
+                <li class="user-setting-item">作品</li>
+              </router-link>
               <li @click="onLogout" class="user-setting-item">退出</li>
             </ul>
           </li>
@@ -495,7 +497,6 @@
         .user-setting-pane {
           position: absolute;
           bottom: 0;
-          /* left: 0; */
           z-index: 300;
           transform: translateY(-100%);
           background-color: white;

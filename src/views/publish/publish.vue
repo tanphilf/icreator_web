@@ -7,8 +7,8 @@
         <div class="publish-operation-box">
           <div class="publish-operation-item">
             <span class="operation-label">标题<em class="required">*</em></span>
-            <input @input="onInputTitle" class="publish-input" type="text" value="" maxlength="32"
-              placeholder="输入文章标题，最长32个字符" :value="title">
+            <input @input="onInputTitle" class="publish-input" type="text" value="" maxlength="50"
+              placeholder="输入文章标题，最长50个字符" :value="title">
           </div>
           <div class="publish-operation-item">
             <span class="operation-label">封面</span>

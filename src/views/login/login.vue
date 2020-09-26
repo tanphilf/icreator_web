@@ -35,14 +35,6 @@
         password: '',
       }
     },
-
-    beforeRouteEnter(to, from, next)
-    {
-      // 每次重进清空登陆信息
-      // gStatus.logout()
-      next()
-    },
-
     methods: {
       onInputName(e)
       {
